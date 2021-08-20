@@ -1,0 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
+
+.navbar-container {
+  background-color: white;
+  border-bottom: 1px solid #d1cece;
+  height: 75px;
+  position: absolute;
+  width: 100%;
+
+  .navbar-title {
+    color: #264653;
+    text-align: left;
+    // color: white;
+    font-family: "Righteous", cursive;
+    font-size: 50px;
+  }
+}
