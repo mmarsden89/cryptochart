@@ -1,5 +1,8 @@
 import "./App.scss";
 import Navbar from "./Components/Navbar/Navbar.js";
+// import { Chart } from "frappe-charts/dist/frappe-charts.esm.js";
+// import "frappe-charts/dist/frappe-charts.min.css";
+import Charts from "./Components/Charts.js";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 
@@ -10,8 +13,8 @@ function App() {
     const call = await axios(
       "https://min-api.cryptocompare.com/data/histoday?fsym=BTC&tsym=USD&limit=10"
     );
-    console.log(call.data);
-  });
+    setData(call.data.Data);
+  }, []);
 
   return (
     <div className="App">
@@ -24,7 +27,9 @@ function App() {
             height: "500px",
             border: "1px solid #d1cece",
           }}
-        ></div>
+        >
+          <Charts props={data} />
+        </div>
       </div>
     </div>
   );
