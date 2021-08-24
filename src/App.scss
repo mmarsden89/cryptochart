@@ -1,4 +1,5 @@
 $coolGrey: #264653;
+$blue: #0508b4;
 $peacockGreen: #2a9d8f;
 $yellowOchre: #e9c46a;
 $sandPC: #f4a261;
@@ -19,5 +20,20 @@ $burntSienna: #e76f51;
     width: 100%;
     height: 100%;
     position: absolute;
+  }
+
+  .current-price {
+    position: absolute;
+    font-weight: 700;
+    padding: 25px;
+    text-align: left;
+
+    .price-action {
+      padding-top: 10px;
+    }
+    .price-header {
+      color: gray;
+      font-size: 14px;
+    }
   }
 }

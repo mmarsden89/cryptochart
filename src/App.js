@@ -7,13 +7,18 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 
 function App() {
-  const [data, setData] = useState({});
+  const [data, setData] = useState([]);
 
-  useEffect(async () => {
-    const call = await axios(
-      "https://min-api.cryptocompare.com/data/histoday?fsym=BTC&tsym=USD&limit=10"
+  const apiCall = async () => {
+    const whatever = await axios(
+      "https://min-api.cryptocompare.com/data/v2/histohour?fsym=BTC&tsym=USD&limit=168"
     );
-    setData(call.data.Data);
+    console.log(whatever.data.Data.Data);
+    setData(whatever.data.Data.Data);
+  };
+
+  useEffect(() => {
+    apiCall();
   }, []);
 
   return (
@@ -23,12 +28,22 @@ function App() {
         <div
           style={{
             backgroundColor: "white",
-            width: "500px",
-            height: "500px",
+            width: "950px",
+            height: "400px",
             border: "1px solid #d1cece",
           }}
         >
-          <Charts props={data} />
+          <div className="current-price">
+            <div className="price-header">Current Price:</div>
+            <div className="price-action">
+              $
+              {data[1] &&
+                data[data.length - 1].close.toLocaleString(undefined, {
+                  minimumFractionDigits: 2,
+                })}
+            </div>
+          </div>
+          {data && <Charts props={data} />}
         </div>
       </div>
     </div>

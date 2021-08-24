@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Line } from "react-chartjs-2";
+import dayjs from "dayjs";
 
 const Charts = (props) => {
   const [prices, setPrices] = useState([]);
@@ -7,39 +8,77 @@ const Charts = (props) => {
   const [times, setTimes] = useState([]);
 
   const timeConverter = (time) => {
-    console.log(new Date(time * 1000));
+    return dayjs(time * 1000).format("MMM DD");
   };
-
-  //   console.log(props.props);
-  //   console.log(timeConverter(props.props[0].time));
 
   useEffect(() => {
     setCoinData(props.props);
-    // console.log(coinData);
     setTimes(props.props.map((single) => timeConverter(single.time)));
+    setPrices(props.props.map((single) => single.close));
   }, [props]);
 
   const data = {
-    labels: ["1", "2", "3", "4", "5", "6"],
+    labels: times,
     datasets: [
       {
-        label: "# of Votes",
-        data: [12, 19, 3, 5, 2, 3],
-        fill: false,
-        borderColor: "rgba(255, 99, 132, 0.2)",
+        borderWidth: 2,
+        data: prices,
+        borderColor: "rgba(0,82,255, .8)",
+        pointRadius: 0,
+        spanGaps: false,
       },
     ],
   };
 
   const options = {
-    scales: {
-      yAxes: [
-        {
-          ticks: {
-            beginAtZero: true,
+    responsive: true,
+    maintainAspectRatio: false,
+    layout: {
+      padding: {
+        top: 50,
+      },
+    },
+    plugins: {
+      legend: {
+        display: false,
+      },
+      tooltip: {
+        caretPadding: 20,
+        yAlign: "bottom",
+        titleFont: { size: 20 },
+        titleAlign: "center",
+        bodyAlign: "center",
+        intersect: false,
+        backgroundColor: "#000",
+        displayColors: false,
+        callbacks: {
+          title: function (tooltipItem) {
+            return "$" + tooltipItem[0].formattedValue;
+          },
+          label: function (tooltipItem) {
+            return dayjs(props.props[tooltipItem.dataIndex].time * 1000).format(
+              "MMMM DD hh:mm A"
+            );
           },
         },
-      ],
+      },
+    },
+    scales: {
+      x: {
+        ticks: {
+          autoSkip: true,
+          maxTicksLimit: 8,
+          font: {
+            size: 15,
+          },
+        },
+        grid: {
+          display: false,
+        },
+      },
+      y: {
+        display: false,
+      },
     },
   };
   return (
