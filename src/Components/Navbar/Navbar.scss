@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Teko:wght@500&display=swap");
 
 .navbar-container {
   background-color: white;
@@ -6,12 +6,52 @@
   height: 68px;
   position: absolute;
   width: 100%;
+  z-index: 100;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 
   .navbar-title {
-    color: #264653;
+    // position: absolute;
+    // left: 20px;
+    color: rgba(0, 82, 255, 0.8);
     text-align: left;
+    margin-left: 40px !important;
+    padding-top: 5px;
     // color: white;
-    font-family: "Righteous", cursive;
-    font-size: 50px;
+    // font-family: system-ui;
+    font-family: "Teko", sans-serif;
+    font-weight: 600;
+    font-size: 45px;
+    text-decoration: none !important;
+    margin: auto 0;
+    height: 100%;
+    letter-spacing: 0.02em;
+  }
+
+  .navbar-navigation {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 10%;
+    align-items: center;
+    margin-right: 40px;
+    font-weight: 500;
+    color: rgba(0, 82, 255, 0.8) !important;
+  }
+
+  .nav-link {
+    color: rgba(0, 82, 255, 0.8);
+  }
+
+  .active-nav-link,
+  .nav-link:hover {
+    color: rgba(0, 82, 255, 0.9);
+    font-weight: 700;
+  }
+
+  .nav-link,
+  .active-nav-link {
+    transition: 0.25s;
   }
 }
