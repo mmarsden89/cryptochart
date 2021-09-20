@@ -79,16 +79,7 @@ const Charts = (props) => {
   };
 
   return (
-    <div
-      style={{
-        backgroundColor: "white",
-        width: "950px",
-        height: "400px",
-        border: "1px solid #d1cece",
-        marginLeft: "-1px",
-        borderTop: "none",
-      }}
-    >
+    <div className="line-container">
       <Line data={data} options={options} />
     </div>
   );

@@ -177,15 +177,7 @@ const ChartWrapper = (props) => {
   }, [timeline, coin]);
 
   return (
-    <div
-      style={{
-        width: "950px",
-        height: "450px",
-        backgroundColor: "white",
-        border: "1px solid #d1cece",
-        // positon: "relative",
-      }}
-    >
+    <div className="chart-wrapper-container">
       <div className="chart-header-container">
         <div className="current-price">
           <div style={{ display: "flex" }}>
