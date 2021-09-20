@@ -1,8 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Teko:wght@500&display=swap");
+@import "../../styles/colors";
 
 .navbar-container {
   background-color: white;
-  border-bottom: 1px solid #d1cece;
+  border-bottom: 1px solid $border;
   height: 68px;
   position: absolute;
   width: 100%;

@@ -1,13 +1,7 @@
-$coolGrey: #264653;
-$blue: rgba(0, 82, 255, 0.8);
-$peacockGreen: #2a9d8f;
-$gray: rgb(185, 185, 185);
-$yellowOchre: #e9c46a;
-$sandPC: #f4a261;
-$burntSienna: #e76f51;
+@import "styles/colors";
 
 .App {
-  background-color: rgba(0, 62, 193, 0.1);
+  background-color: $background;
   height: 100vh;
   text-align: center;
   width: 100vw;
@@ -46,11 +40,11 @@ $burntSienna: #e76f51;
 
   .news-container,
   .news-container2 {
-    background-color: white;
+    background-color: $white;
     width: 300px;
     display: flex;
     flex-direction: column;
-    border: 1px solid #d1cece;
+    border: 1px solid $border;
   }
 
   .news-container2 {
