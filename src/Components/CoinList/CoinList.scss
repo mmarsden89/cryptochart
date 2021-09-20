@@ -1,0 +1,18 @@
+.coin-list-container {
+  height: "500px";
+  width: "500px";
+  position: "absolute";
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  flex-wrap: wrap;
+  height: calc(100vh - 50px);
+  top: 50px;
+  overflow: scroll;
+  justify-content: space-evenly;
+  padding: 25px 0px;
+
+  .individual-coin {
+    padding: 5px;
+  }
+}
