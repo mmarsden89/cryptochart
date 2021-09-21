@@ -7,6 +7,8 @@ import { Link } from "react-router-dom";
 const HomeNews = () => {
   const [news, setNews] = useState([]);
 
+  console.log(Math.round(window.innerHeight / 125));
+
   const apiCall = async () => {
     const newsCall = await axios(
       "https://min-api.cryptocompare.com/data/v2/news/?lang=EN"
@@ -23,7 +25,7 @@ const HomeNews = () => {
       <div style={{ height: "15%" }}></div>
       <div className="for-you">NEWS FOR YOU</div>
       <div className="news-container">
-        {news.slice(0, 5).map((newsItem) => (
+        {news.slice(0, Math.round(window.innerHeight / 125)).map((newsItem) => (
           <News data={newsItem} id={newsItem.id} />
         ))}
         <Link to="/news">
