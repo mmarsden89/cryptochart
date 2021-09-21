@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/cryptochart/static/css/main.2b76a972.chunk.css",
-    "main.js": "/cryptochart/static/js/main.3509443e.chunk.js",
-    "main.js.map": "/cryptochart/static/js/main.3509443e.chunk.js.map",
+    "main.css": "/cryptochart/static/css/main.4a1cb090.chunk.css",
+    "main.js": "/cryptochart/static/js/main.a5d43431.chunk.js",
+    "main.js.map": "/cryptochart/static/js/main.a5d43431.chunk.js.map",
     "runtime-main.js": "/cryptochart/static/js/runtime-main.d3ab3196.js",
     "runtime-main.js.map": "/cryptochart/static/js/runtime-main.d3ab3196.js.map",
-    "static/js/2.63069aab.chunk.js": "/cryptochart/static/js/2.63069aab.chunk.js",
-    "static/js/2.63069aab.chunk.js.map": "/cryptochart/static/js/2.63069aab.chunk.js.map",
+    "static/js/2.f5d02eb2.chunk.js": "/cryptochart/static/js/2.f5d02eb2.chunk.js",
+    "static/js/2.f5d02eb2.chunk.js.map": "/cryptochart/static/js/2.f5d02eb2.chunk.js.map",
     "static/js/3.54b48e35.chunk.js": "/cryptochart/static/js/3.54b48e35.chunk.js",
     "static/js/3.54b48e35.chunk.js.map": "/cryptochart/static/js/3.54b48e35.chunk.js.map",
     "index.html": "/cryptochart/index.html",
-    "static/css/main.2b76a972.chunk.css.map": "/cryptochart/static/css/main.2b76a972.chunk.css.map",
-    "static/js/2.63069aab.chunk.js.LICENSE.txt": "/cryptochart/static/js/2.63069aab.chunk.js.LICENSE.txt"
+    "static/css/main.4a1cb090.chunk.css.map": "/cryptochart/static/css/main.4a1cb090.chunk.css.map",
+    "static/js/2.f5d02eb2.chunk.js.LICENSE.txt": "/cryptochart/static/js/2.f5d02eb2.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.d3ab3196.js",
-    "static/js/2.63069aab.chunk.js",
-    "static/css/main.2b76a972.chunk.css",
-    "static/js/main.3509443e.chunk.js"
+    "static/js/2.f5d02eb2.chunk.js",
+    "static/css/main.4a1cb090.chunk.css",
+    "static/js/main.a5d43431.chunk.js"
   ]
 }
