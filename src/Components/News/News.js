@@ -5,7 +5,7 @@ const News = (props) => {
   return (
     <a href={url} target="_blank" className="news-item-container" title={title}>
       <img src={imageurl} className="news-image" />
-      <p className="news-title">{title.replace(/^(.{85}[^\s]*).*/, "$1...")}</p>
+      <p className="news-title">{title.replace(/^(.{75}[^\s]*).*/, "$1...")}</p>
     </a>
   );
 };

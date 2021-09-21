@@ -15,7 +15,7 @@
   justify-content: space-evenly;
   flex-wrap: wrap;
   width: 100%;
-  height: calc(100% - 68px);
+  // height: calc(100% - 68px);
   margin-top: 100px;
   padding-top: 25px;
   // position: absolute;
@@ -48,12 +48,6 @@
 
 .coin-button-container {
   padding: 15px 25px;
-}
-
-.chart-header-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
 }
 
 .new-coin-input {

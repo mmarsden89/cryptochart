@@ -20,6 +20,7 @@ const HomeNews = () => {
 
   return (
     <div className="news-parent-container">
+      <div style={{ height: "15%" }}></div>
       <div className="for-you">NEWS FOR YOU</div>
       <div className="news-container">
         {news.slice(0, 5).map((newsItem) => (

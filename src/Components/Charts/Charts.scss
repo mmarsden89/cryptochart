@@ -29,6 +29,8 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  position: absolute;
+  width: 100%;
 }
 
 .new-coin-input {
@@ -117,11 +119,13 @@
   border: 1px solid $border;
   margin-left: -1px;
   border-top: none;
+  padding-top: 5vh;
 }
 
 .chart-wrapper-container {
   width: 70vw;
-  height: 60vh;
+  height: 70vh;
   background-color: white;
   border: 1px solid $border;
+  position: relative;
 }
