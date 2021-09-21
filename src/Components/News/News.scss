@@ -49,7 +49,10 @@
   overflow: scroll;
   height: calc(100vh - 200px);
   border: 1px solid $border;
-  margin-top: 25px;
+  position: relative;
+}
+.all-news-container:first-child {
+  padding-top: 35px;
 }
 
 .for-you {
@@ -77,4 +80,12 @@
 .source {
   font-size: 10px;
   color: $gray;
+}
+
+.scroll-for-more {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  color: $blue;
+  font-weight: 700;
 }

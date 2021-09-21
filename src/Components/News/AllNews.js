@@ -20,8 +20,9 @@ const AllNews = () => {
 
   return (
     <div className="all-news-container">
-      {news.slice(0, 20).map((newsItem) => (
-        <News data={newsItem} key={newsItem.id} />
+      <p className="scroll-for-more">scroll for more</p>
+      {news.slice(0, 50).map((newsItem) => (
+        <News data={newsItem} key={newsItem.id} all={true} />
       ))}
     </div>
   );

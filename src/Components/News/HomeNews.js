@@ -7,8 +7,6 @@ import { Link } from "react-router-dom";
 const HomeNews = () => {
   const [news, setNews] = useState([]);
 
-  console.log(Math.round(window.innerHeight / 125));
-
   const apiCall = async () => {
     const newsCall = await axios(
       "https://min-api.cryptocompare.com/data/v2/news/?lang=EN"
