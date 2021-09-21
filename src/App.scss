@@ -3,6 +3,7 @@
 .App {
   background-color: $background;
   height: calc(100vh - 68px);
+  flex-wrap: nowrap;
   text-align: center;
   width: 100vw;
 

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { News } from "./index.js";
-import axios from "axios";
 import "./News.scss";
+import axios from "axios";
+import { AllNews, HomeNews } from "./index.js";
 
-const AllNews = () => {
+const NewsWrapper = () => {
   const [news, setNews] = useState([]);
 
   const apiCall = async () => {
@@ -17,14 +17,18 @@ const AllNews = () => {
     apiCall();
   }, []);
 
+  const { hash } = window.location;
+
   return (
-    <div className="all-news-container">
-      <p className="scroll-for-more">scroll for more</p>
-      {news.slice(0, 50).map((newsItem) => (
-        <News data={newsItem} key={newsItem.id} all={true} />
-      ))}
+    <div className="news-wrapper">
+      {hash.includes("news") ? (
+        <AllNews news={news} />
+      ) : (
+        <HomeNews news={news} />
+      )}
+      ;
     </div>
   );
 };
 
-export default AllNews;
+export default NewsWrapper;

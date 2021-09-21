@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import News from "./News.js";
+import { News } from "./index.js";
 import "./News.scss";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-const HomeNews = () => {
+const HomeNews = (props) => {
   const [news, setNews] = useState([]);
 
   const apiCall = async () => {

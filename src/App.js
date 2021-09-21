@@ -3,7 +3,7 @@ import Navbar from "./Components/Navbar/Navbar.js";
 import ErrorMessage from "./Components/ErrorMessage/ErrorMessage.js";
 import { Route, Switch } from "react-router-dom";
 import ChartWrapper from "./Components/Charts/ChartWrapper.js";
-import HomeNews from "./Components/News/HomeNews.js";
+import NewsWrapper from "./Components/News/NewsWrapper.js";
 import AllNews from "./Components/News/AllNews.js";
 import React, { useState, useEffect } from "react";
 
@@ -29,10 +29,10 @@ function App() {
         <Switch>
           <Route exact path="/">
             <ChartWrapper flipError={flipError} />
-            <HomeNews />
+            <NewsWrapper />
           </Route>
           <Route exact path="/news">
-            <AllNews />
+            <NewsWrapper />
           </Route>
         </Switch>
       </div>
