@@ -5,6 +5,7 @@ import { AllNews, HomeNews } from "./index.js";
 
 const NewsWrapper = () => {
   const [news, setNews] = useState([]);
+  const { hash } = window.location;
 
   const apiCall = async () => {
     const newsCall = await axios(
@@ -16,8 +17,6 @@ const NewsWrapper = () => {
   useEffect(() => {
     apiCall();
   }, []);
-
-  const { hash } = window.location;
 
   return (
     <div className="news-wrapper">

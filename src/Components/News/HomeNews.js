@@ -1,31 +1,26 @@
-import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { News } from "./index.js";
 import "./News.scss";
-import axios from "axios";
-import { Link } from "react-router-dom";
 
 const HomeNews = (props) => {
-  const [news, setNews] = useState([]);
+  const { news } = props;
 
-  const apiCall = async () => {
-    const newsCall = await axios(
-      "https://min-api.cryptocompare.com/data/v2/news/?lang=EN"
-    );
-    setNews(newsCall.data.Data);
-  };
+  const { innerHeight } = window;
 
-  useEffect(() => {
-    apiCall();
-  }, []);
+  const numberOfArticles = Math.round(innerHeight / 125);
+
+  const newsHTML = news
+    .slice(0, numberOfArticles)
+    .map((newsItem) => (
+      <News data={newsItem} id={newsItem.id} key={newsItem.id} />
+    ));
 
   return (
     <div className="home-news-container">
       <div style={{ height: "15%" }}></div>
       <div className="for-you">NEWS FOR YOU</div>
       <div className="news-container">
-        {news.slice(0, Math.round(window.innerHeight / 125)).map((newsItem) => (
-          <News data={newsItem} id={newsItem.id} key={newsItem.id} />
-        ))}
+        {newsHTML}
         <Link to="/news">
           <div className="view-more">view more</div>
         </Link>

@@ -1,12 +1,17 @@
 import "./News.scss";
 
 const News = (props) => {
-  const { url, imageurl, title, source } = props.data;
-  const { all } = props;
+  const {
+    data: { url, imageurl, title, source },
+    all,
+  } = props;
+
+  const regex = (/^(.{75}[^\s]*).*/, "$1...");
+
   return (
     <a href={url} target="_blank" className="news-item-container" title={title}>
       <img src={imageurl} className="news-image" />
-      <p className="news-title">{title.replace(/^(.{75}[^\s]*).*/, "$1...")}</p>
+      <p className="news-title">{title.replace(regex)}</p>
       {all ? <p className="source">({source})</p> : null}
     </a>
   );
