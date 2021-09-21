@@ -9,7 +9,7 @@
   justify-content: flex-start;
   color: black;
   text-align: left;
-  padding: 0px 10px;
+  padding: 5px 10px;
   transition: 0.25s;
 
   .news-image {
@@ -19,6 +19,7 @@
   }
 
   .news-title {
+    margin: 0;
     font-weight: 500;
     font-size: 13px;
     text-transform: full-width;
@@ -31,13 +32,18 @@
   background-color: rgb(233, 231, 231);
 }
 
-.news-container,
-.news-container2 {
+.news-container {
   background-color: $white;
   width: 300px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   border: 1px solid $border;
+  height: 60vh;
+  margin-bottom: 10px;
+  :first-child {
+    padding-top: 5px;
+  }
 }
 
 .news-container2 {
@@ -49,18 +55,16 @@
 
 .for-you {
   color: $blue;
-  height: 50px;
   font-size: 25px;
   font-weight: 700;
-  padding: 10px 0;
+  // padding: 10px 0;
 }
 
 .news-parent-container {
-  height: 30vw;
+  height: 75vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin-top: 5px;
 }
 
 .view-more {

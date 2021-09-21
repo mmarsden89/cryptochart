@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import News from "./News.js";
+import "./News.scss";
 import axios from "axios";
 import { Link } from "react-router-dom";
 

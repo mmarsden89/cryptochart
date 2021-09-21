@@ -1,25 +1,5 @@
 @import "../../styles/colors";
 
-.news-container {
-  background-color: white;
-  width: 300px;
-  border: 1px solid $border;
-}
-
-.for-you {
-  color: $blue;
-  font-size: 25px;
-  font-weight: 700;
-}
-
-.view-more {
-  font-size: 20px;
-  padding: 10px;
-  background-color: $blue;
-  color: white;
-  font-weight: 500;
-}
-
 .timeline-button {
   border: none;
   background-color: white;
@@ -141,7 +121,7 @@
 
 .chart-wrapper-container {
   width: 70vw;
-  height: 30vw;
+  height: 60vh;
   background-color: white;
   border: 1px solid $border;
 }
