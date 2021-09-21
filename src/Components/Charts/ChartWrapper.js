@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import dayjs from "dayjs";
 import Charts from "./Charts";
+import TimelineButtons from "./Components/TimelineButtons.js";
 import ErrorMessage from "../ErrorMessage/ErrorMessage.js";
 
 const ChartWrapper = (props) => {
@@ -22,14 +23,14 @@ const ChartWrapper = (props) => {
   };
 
   const apiCall = async () => {
-    const calls = {
+    const urls = {
       "1Y": `https://min-api.cryptocompare.com/data/v2/histoday?fsym=${coin}&tsym=USD&limit=365`,
       "1M": `https://min-api.cryptocompare.com/data/v2/histoday?fsym=${coin}&tsym=USD&limit=30`,
       "1W": `https://min-api.cryptocompare.com/data/v2/histohour?fsym=${coin}&tsym=USD&limit=168`,
       "24H": `https://min-api.cryptocompare.com/data/v2/histominute?fsym=${coin}&tsym=USD&limit=1440&aggregate=5`,
       "1H": `https://min-api.cryptocompare.com/data/v2/histominute?fsym=${coin}&tsym=USD&limit=60`,
     };
-    const whatever = await axios(calls[timeline]);
+    const whatever = await axios(urls[timeline]);
 
     const dataToSet = whatever.data.Data.Data;
     setCoinData(dataToSet);
@@ -55,6 +56,7 @@ const ChartWrapper = (props) => {
     const api = await axios(
       "https://min-api.cryptocompare.com/data/all/coinlist?summary=true"
     );
+    const { Data } = api.data;
     setSymbolList(Object.keys(api.data.Data));
   };
 
@@ -214,61 +216,7 @@ const ChartWrapper = (props) => {
         </div>
 
         <div className="button-container">
-          <button
-            onClick={setNewTimeline}
-            id="1H"
-            className={
-              timeline === "1H"
-                ? "timeline-button active-timeline"
-                : "timeline-button"
-            }
-          >
-            1H
-          </button>
-          <button
-            onClick={setNewTimeline}
-            id="24H"
-            className={
-              timeline === "24H"
-                ? "timeline-button active-timeline"
-                : "timeline-button"
-            }
-          >
-            24H
-          </button>
-          <button
-            onClick={setNewTimeline}
-            id="1W"
-            className={
-              timeline === "1W"
-                ? "timeline-button active-timeline"
-                : "timeline-button"
-            }
-          >
-            1W
-          </button>
-          <button
-            onClick={setNewTimeline}
-            id="1M"
-            className={
-              timeline === "1M"
-                ? "timeline-button active-timeline"
-                : "timeline-button"
-            }
-          >
-            1M
-          </button>
-          <button
-            onClick={setNewTimeline}
-            id="1Y"
-            className={
-              timeline === "1Y"
-                ? "timeline-button active-timeline"
-                : "timeline-button"
-            }
-          >
-            1Y
-          </button>
+          {<TimelineButtons onClick={setNewTimeline} timeline={timeline} />}
         </div>
       </div>
       <Charts times={times} prices={prices} coinData={coinData} />
