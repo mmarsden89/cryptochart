@@ -1,149 +1,149 @@
 @import "../../styles/colors";
 
-.timeline-button {
-  border: none;
-  background-color: white;
-  color: $gray;
-  cursor: pointer;
-  font-weight: 700;
-  transition: 0.35s;
-}
-
-.timeline-button:hover {
-  color: $blue;
-}
-
-.active-timeline {
-  color: $blue;
-}
-
-.coin-button-container {
-  align-items: flex-start;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  padding: 15px 25px;
-}
-
-.chart-header-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  position: absolute;
-  width: 100%;
-}
-
-.new-coin-input {
-  border: none;
-  border-bottom: 1px solid $blue;
-  font-weight: 700;
-  outline: none;
-  padding: 0px 1px;
-  width: 60px;
-}
-
-.new-coin-input::placeholder {
-  color: $gray;
-}
-
-.new-coin-input:focus {
-  color: $blue;
-}
-
-.coin-list-item,
-.browse-all {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  margin: 0;
-  padding: 0 5px;
-  text-align: left;
-  transition: 0.25s;
-  width: 100%;
-}
-
-.browse-all {
-  color: white;
-  background-color: $blue;
-  border-radius: 5px;
-  padding: 5px;
-  margin-top: 5px;
-  white-space: nowrap;
-}
-
-.coin-list-item:hover {
-  background-color: rgba(0, 82, 255, 0.15);
-}
-
-.coin-search-container {
-  background-color: rgba(185, 185, 185, 0.3);
-  font-size: 14px;
-  width: 150px;
-  position: absolute;
-}
-
-.remove-button {
-  color: $red !important;
-}
-
-.positive {
-  color: rgb(19, 163, 19);
-}
-
-.negative {
-  color: $red;
-}
-
-.percentage {
-  padding-top: 5px;
-  font-weight: 400;
-  font-size: 15px;
-  padding-left: 10px;
-}
-
-.input-container {
-  margin-left: 4px;
-  margin-top: -2px;
-}
-
-.coin-chart-header {
-  color: $blue;
-  font-size: 25px;
-  font-weight: 700;
-}
-
-.line-container {
-  background-color: white;
-  border: 1px solid $border;
-  border-top: none;
-  height: 100%;
-  margin-left: -1px;
-  padding-top: 5vh;
-  width: 100%;
-}
-
 .chart-wrapper-container {
   background-color: white;
   border: 1px solid $border;
   height: 70vh;
   position: relative;
   width: 70vw;
-}
 
-.current-price {
-  font-weight: 500;
-  padding: 15px 25px;
-  text-align: left;
-
-  .price-action {
-    padding-top: 5px;
+  .timeline-button {
+    border: none;
+    background-color: white;
+    color: $gray;
+    cursor: pointer;
+    font-weight: 700;
+    transition: 0.35s;
   }
-  .price-header {
-    color: gray;
+
+  .timeline-button:hover {
+    color: $blue;
+  }
+
+  .active-timeline {
+    color: $blue;
+  }
+
+  .coin-button-container {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 15px 25px;
+  }
+
+  .chart-header-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: absolute;
+    width: 100%;
+  }
+
+  .new-coin-input {
+    border: none;
+    border-bottom: 1px solid $blue;
+    font-weight: 700;
+    outline: none;
+    padding: 0px 1px;
+    width: 60px;
+  }
+
+  .new-coin-input::placeholder {
+    color: $gray;
+  }
+
+  .new-coin-input:focus {
+    color: $blue;
+  }
+
+  .coin-list-item,
+  .browse-all {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    margin: 0;
+    padding: 0 5px;
+    text-align: left;
+    transition: 0.25s;
+    width: 100%;
+  }
+
+  .browse-all {
+    color: white;
+    background-color: $blue;
+    border-radius: 5px;
+    padding: 5px;
+    margin-top: 5px;
+    white-space: nowrap;
+  }
+
+  .coin-list-item:hover {
+    background-color: rgba(0, 82, 255, 0.15);
+  }
+
+  .coin-search-container {
+    background-color: rgba(185, 185, 185, 0.3);
     font-size: 14px;
+    width: 150px;
+    position: absolute;
   }
-}
 
-.button-container {
-  padding: 15px 25px;
+  .remove-button {
+    color: $red !important;
+  }
+
+  .positive {
+    color: rgb(19, 163, 19);
+  }
+
+  .negative {
+    color: $red;
+  }
+
+  .percentage {
+    padding-top: 5px;
+    font-weight: 400;
+    font-size: 15px;
+    padding-left: 10px;
+  }
+
+  .input-container {
+    margin-left: 4px;
+    margin-top: -2px;
+  }
+
+  .coin-chart-header {
+    color: $blue;
+    font-size: 25px;
+    font-weight: 700;
+  }
+
+  .line-container {
+    background-color: white;
+    border: 1px solid $border;
+    border-top: none;
+    height: 100%;
+    margin-left: -1px;
+    padding-top: 5vh;
+    width: 100%;
+  }
+
+  .current-price {
+    font-weight: 500;
+    padding: 15px 25px;
+    text-align: left;
+
+    .price-action {
+      padding-top: 5px;
+    }
+    .price-header {
+      color: gray;
+      font-size: 14px;
+    }
+  }
+
+  .button-container {
+    padding: 15px 25px;
+  }
 }

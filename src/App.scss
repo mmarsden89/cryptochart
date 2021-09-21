@@ -5,16 +5,16 @@
   height: calc(100vh - 68px);
   text-align: center;
   width: 100vw;
-}
 
-.component-container {
-  align-items: flex-start;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  height: calc(100% - 93px);
-  justify-content: space-evenly;
-  margin-top: 68px;
-  padding-top: 25px;
-  width: 100%;
+  .component-container {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: calc(100% - 93px);
+    justify-content: space-evenly;
+    margin-top: 68px;
+    padding-top: 25px;
+    width: 100%;
+  }
 }
