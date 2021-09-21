@@ -19,7 +19,7 @@ const AllNews = () => {
   }, []);
 
   return (
-    <div className="news-container2">
+    <div className="all-news-container">
       {news.slice(0, 20).map((newsItem) => (
         <News data={newsItem} key={newsItem.id} />
       ))}

@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap");
 @import "../../styles/colors";
 
 .news-item-container {
@@ -29,7 +28,7 @@
 }
 
 .news-item-container:hover {
-  background-color: rgb(233, 231, 231);
+  background-color: $whitebackground;
 }
 
 .news-container {
@@ -44,18 +43,19 @@
   }
 }
 
-.news-container2 {
+.all-news-container {
+  background-color: $white;
   width: 90%;
   overflow: scroll;
-  height: calc(100vh - 150px);
-  margin-top: 50px;
+  height: calc(100vh - 200px);
+  border: 1px solid $border;
+  margin-top: 25px;
 }
 
 .for-you {
   color: $blue;
   font-size: 25px;
   font-weight: 700;
-  // padding: 10px 0;
 }
 
 .news-parent-container {
@@ -72,4 +72,9 @@
   color: white;
   font-weight: 500;
   text-decoration: none;
+}
+
+.source {
+  font-size: 10px;
+  color: $gray;
 }

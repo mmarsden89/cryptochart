@@ -2,10 +2,9 @@
 
 .App {
   background-color: $background;
-  height: 100vh;
+  height: calc(100vh - 68px);
   text-align: center;
   width: 100vw;
-  overflow: hidden;
 }
 
 .component-container {
@@ -15,10 +14,9 @@
   justify-content: space-evenly;
   flex-wrap: wrap;
   width: 100%;
-  // height: calc(100% - 68px);
-  margin-top: 100px;
+  height: calc(100% - 93px);
+  margin-top: 68px;
   padding-top: 25px;
-  // position: absolute;
 }
 
 .current-price {
