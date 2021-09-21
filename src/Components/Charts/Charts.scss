@@ -4,8 +4,8 @@
   border: none;
   background-color: white;
   color: $gray;
-  font-weight: 700;
   cursor: pointer;
+  font-weight: 700;
   transition: 0.35s;
 }
 
@@ -18,11 +18,11 @@
 }
 
 .coin-button-container {
-  padding: 15px 25px;
+  align-items: flex-start;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  align-items: flex-start;
+  padding: 15px 25px;
 }
 
 .chart-header-container {
@@ -34,12 +34,12 @@
 }
 
 .new-coin-input {
-  width: 60px !important;
-  font-weight: 700;
   border: none;
+  border-bottom: 1px solid $blue;
+  font-weight: 700;
   outline: none;
   padding: 0px 1px;
-  border-bottom: 1px solid $blue;
+  width: 60px;
 }
 
 .new-coin-input::placeholder {
@@ -52,23 +52,23 @@
 
 .coin-list-item,
 .browse-all {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
   margin: 0;
   padding: 0 5px;
-  transition: 0.25s;
-  cursor: pointer;
-  border: none;
-  width: 100%;
   text-align: left;
-  background-color: transparent;
+  transition: 0.25s;
+  width: 100%;
 }
 
 .browse-all {
-  white-space: nowrap;
-  background-color: $blue;
   color: white;
+  background-color: $blue;
+  border-radius: 5px;
   padding: 5px;
   margin-top: 5px;
-  border-radius: 5px;
+  white-space: nowrap;
 }
 
 .coin-list-item:hover {
@@ -76,10 +76,10 @@
 }
 
 .coin-search-container {
-  width: 150px;
-  font-size: 14px;
-  position: absolute;
   background-color: rgba(185, 185, 185, 0.3);
+  font-size: 14px;
+  width: 150px;
+  position: absolute;
 }
 
 .remove-button {
@@ -102,30 +102,48 @@
 }
 
 .input-container {
-  margin-top: -2px;
   margin-left: 4px;
+  margin-top: -2px;
 }
 
 .coin-chart-header {
   color: $blue;
-  font-weight: 700;
   font-size: 25px;
+  font-weight: 700;
 }
 
 .line-container {
   background-color: white;
-  width: 100%;
-  height: 100%;
   border: 1px solid $border;
-  margin-left: -1px;
   border-top: none;
+  height: 100%;
+  margin-left: -1px;
   padding-top: 5vh;
+  width: 100%;
 }
 
 .chart-wrapper-container {
-  width: 70vw;
-  height: 70vh;
   background-color: white;
   border: 1px solid $border;
+  height: 70vh;
   position: relative;
+  width: 70vw;
+}
+
+.current-price {
+  font-weight: 500;
+  padding: 15px 25px;
+  text-align: left;
+
+  .price-action {
+    padding-top: 5px;
+  }
+  .price-header {
+    color: gray;
+    font-size: 14px;
+  }
+}
+
+.button-container {
+  padding: 15px 25px;
 }

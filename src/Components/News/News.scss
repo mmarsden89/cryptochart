@@ -1,29 +1,29 @@
 @import "../../styles/colors";
 
 .news-item-container {
+  align-items: center;
+  color: $black;
   display: flex;
   flex-direction: row;
-  align-items: center;
-  text-decoration: none;
   justify-content: flex-start;
-  color: black;
-  text-align: left;
   padding: 5px 10px;
+  text-align: left;
+  text-decoration: none;
   transition: 0.25s;
 
   .news-image {
+    height: 50px;
     padding-right: 10px;
     width: 50px;
-    height: 50px;
   }
 
   .news-title {
-    margin: 0;
     font-weight: 500;
     font-size: 13px;
-    text-transform: full-width;
     letter-spacing: 0.05em;
     line-height: 1.1rem;
+    margin: 0;
+    text-transform: full-width;
   }
 }
 
@@ -33,11 +33,11 @@
 
 .news-container {
   background-color: $white;
-  width: 300px;
+  border: 1px solid $border;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border: 1px solid $border;
+  width: 300px;
   :first-child {
     padding-top: 5px;
   }
@@ -45,14 +45,14 @@
 
 .all-news-container {
   background-color: $white;
-  width: 90%;
+  border: 1px solid $border;
   overflow: scroll;
   height: calc(100vh - 200px);
-  border: 1px solid $border;
   position: relative;
+  width: 90%;
 }
 .all-news-container:first-child {
-  padding-top: 35px;
+  padding-top: 40px;
 }
 
 .for-you {
@@ -69,23 +69,23 @@
 }
 
 .view-more {
-  font-size: 20px;
-  padding: 10px;
   background-color: $blue;
   color: white;
+  font-size: 20px;
   font-weight: 500;
+  padding: 10px;
   text-decoration: none;
 }
 
 .source {
-  font-size: 10px;
   color: $gray;
+  font-size: 10px;
 }
 
 .scroll-for-more {
+  color: $blue;
+  font-weight: 700;
   position: absolute;
   top: 0;
   width: 100%;
-  color: $blue;
-  font-weight: 700;
 }

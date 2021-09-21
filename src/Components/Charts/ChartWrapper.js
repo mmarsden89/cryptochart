@@ -205,6 +205,7 @@ const ChartWrapper = (props) => {
               onClick={newCoinBoolean ? deleteCoin : setNewCoin}
               id={coinButton}
               className={chartButtonClassName(coinButton)}
+              key={coinButton}
             >
               {coinButton}
             </button>

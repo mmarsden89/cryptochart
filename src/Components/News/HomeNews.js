@@ -24,7 +24,7 @@ const HomeNews = () => {
       <div className="for-you">NEWS FOR YOU</div>
       <div className="news-container">
         {news.slice(0, Math.round(window.innerHeight / 125)).map((newsItem) => (
-          <News data={newsItem} id={newsItem.id} />
+          <News data={newsItem} id={newsItem.id} key={newsItem.id} />
         ))}
         <Link to="/news">
           <div className="view-more">view more</div>

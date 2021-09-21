@@ -1,10 +1,7 @@
 import "./App.scss";
 import Navbar from "./Components/Navbar/Navbar.js";
-import CoinList from "./Components/CoinList/CoinList.js";
 import ErrorMessage from "./Components/ErrorMessage/ErrorMessage.js";
 import { Route, Switch } from "react-router-dom";
-// import { Chart } from "frappe-charts/dist/frappe-charts.esm.js";
-// import "frappe-charts/dist/frappe-charts.min.css";
 import ChartWrapper from "./Components/Charts/ChartWrapper.js";
 import HomeNews from "./Components/News/HomeNews.js";
 import AllNews from "./Components/News/AllNews.js";
@@ -37,7 +34,6 @@ function App() {
           <Route exact path="/news">
             <AllNews />
           </Route>
-          <Route exact path="/coinlist" component={CoinList} />
         </Switch>
       </div>
     </div>
