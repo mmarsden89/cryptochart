@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import axios from "axios";
-import dayjs from "dayjs";
-import Charts from "./Charts";
-import TimelineButtons from "./Components/TimelineButtons.js";
-import ErrorMessage from "../ErrorMessage/ErrorMessage.js";
+import {
+  TimelineButtons,
+  CoinInput,
+  CoinButtons,
+  CurrentPrice,
+  Chart,
+} from "./Components/index.js";
+import { getCoinData, getAllCoins } from "./api/index.js";
 
 const ChartWrapper = (props) => {
+  const { flipError } = props;
+
   const [prices, setPrices] = useState([]);
   const [coinData, setCoinData] = useState([]);
   const [coin, setCoin] = useState("BTC");
@@ -17,25 +21,6 @@ const ChartWrapper = (props) => {
   const [symbol, setSymbol] = useState("");
   const [symbolList, setSymbolList] = useState([]);
   const [percentage, setPercentage] = useState(0);
-
-  const timeConverter = (time) => {
-    return dayjs(time * 1000).format("MMM DD");
-  };
-
-  const apiCall = async () => {
-    const urls = {
-      "1Y": `https://min-api.cryptocompare.com/data/v2/histoday?fsym=${coin}&tsym=USD&limit=365`,
-      "1M": `https://min-api.cryptocompare.com/data/v2/histoday?fsym=${coin}&tsym=USD&limit=30`,
-      "1W": `https://min-api.cryptocompare.com/data/v2/histohour?fsym=${coin}&tsym=USD&limit=168`,
-      "24H": `https://min-api.cryptocompare.com/data/v2/histominute?fsym=${coin}&tsym=USD&limit=1440&aggregate=5`,
-      "1H": `https://min-api.cryptocompare.com/data/v2/histominute?fsym=${coin}&tsym=USD&limit=60`,
-    };
-    const whatever = await axios(urls[timeline]);
-
-    const dataToSet = whatever.data.Data.Data;
-    setCoinData(dataToSet);
-    return dataToSet;
-  };
 
   const updateCoin = (id) => {
     setCoin(id);
@@ -53,11 +38,7 @@ const ChartWrapper = (props) => {
 
   const addNewButton = async () => {
     setNewCoinBoolean(true);
-    const api = await axios(
-      "https://min-api.cryptocompare.com/data/all/coinlist?summary=true"
-    );
-    const { Data } = api.data;
-    setSymbolList(Object.keys(api.data.Data));
+    const api = getAllCoins(setSymbolList);
   };
 
   const handleChange = (event) => {
@@ -81,7 +62,9 @@ const ChartWrapper = (props) => {
     const { id } = event.target;
     const updatedList = [...coinList];
     if (updatedList.includes(id)) {
-      props.flipError("Already added coin");
+      flipError("Already added coin");
+    } else if (updatedList.length > 8) {
+      flipError("Too many coins. Please consider deleting unneeded ones");
     } else {
       updatedList.push(id);
       setCoinList(updatedList);
@@ -90,44 +73,12 @@ const ChartWrapper = (props) => {
   };
 
   const handleBlur = () => {
-    const handleThings = () => {
+    const handleState = () => {
       setNewCoinBoolean(false);
       setSymbol("");
     };
-    setTimeout(handleThings, 500);
+    setTimeout(handleState, 500);
   };
-
-  const inputHTML = (
-    <div onBlur={handleBlur} className="input-container">
-      <input
-        className="new-coin-input"
-        placeholder="SYMBOL"
-        value={symbol}
-        onChange={handleChange}
-        type="text"
-        autoFocus
-      />
-      <div className="coin-search-container">
-        {symbol.length > 0 &&
-          symbolList
-            .sort()
-            .slice(0, 10)
-            .map((sym) => (
-              <button
-                className="coin-list-item"
-                onClick={handleNewCoin}
-                id={sym}
-                key={sym}
-              >
-                {sym}
-              </button>
-            ))}
-        <Link to="/coinlist">
-          <button className="browse-all">browse all</button>
-        </Link>
-      </div>
-    </div>
-  );
 
   const newCoinHTML = (
     <button className="timeline-button" onClick={addNewButton}>
@@ -135,7 +86,14 @@ const ChartWrapper = (props) => {
     </button>
   );
 
-  const buttonToInput = newCoinBoolean ? inputHTML : newCoinHTML;
+  const buttonOrInput = newCoinBoolean ? (
+    <CoinInput
+      state={{ symbol, symbolList }}
+      functions={{ handleChange, handleNewCoin, handleBlur }}
+    />
+  ) : (
+    newCoinHTML
+  );
 
   const checkOrUpdateStorage = (list) => {
     if (!localStorage.getItem("coins")) {
@@ -166,60 +124,30 @@ const ChartWrapper = (props) => {
 
   useEffect(async () => {
     checkOrUpdateStorage();
-    const stuff = await apiCall();
-    setTimes(stuff.map((single) => timeConverter(single.time)));
-    setPrices(stuff.map((single) => single.close));
-    setPercentage(
-      Math.round(
-        ((stuff[stuff.length - 1].close - stuff[0].close) / stuff[0].close) *
-          100 *
-          100
-      ) / 100
+    const api = await getCoinData(
+      coin,
+      timeline,
+      setCoinData,
+      setTimes,
+      setPrices,
+      setPercentage
     );
   }, [timeline, coin]);
 
   return (
     <div className="chart-wrapper-container">
       <div className="chart-header-container">
-        <div className="current-price">
-          <div style={{ display: "flex" }}>
-            <div className="coin-chart-header">{coin}</div>
-            <div
-              className={
-                percentage > 0 ? "percentage positive" : "percentage negative"
-              }
-            >
-              {percentage}%
-            </div>
-          </div>
-          <div className="price-header">Current Price:</div>
-          <div className="price-action">
-            $
-            {coinData[1] &&
-              coinData[coinData.length - 1].close.toLocaleString(undefined, {
-                minimumFractionDigits: 2,
-              })}
-          </div>
-        </div>
-        <div className="coin-button-container">
-          {coinList.map((coinButton) => (
-            <button
-              onClick={newCoinBoolean ? deleteCoin : setNewCoin}
-              id={coinButton}
-              className={chartButtonClassName(coinButton)}
-              key={coinButton}
-            >
-              {coinButton}
-            </button>
-          ))}
-          {buttonToInput}
-        </div>
-
+        <CurrentPrice state={{ percentage, coinData, coin }} />
+        <CoinButtons
+          functions={{ deleteCoin, setNewCoin, chartButtonClassName }}
+          state={{ coinList, newCoinBoolean }}
+          html={{ buttonOrInput }}
+        />
         <div className="button-container">
           {<TimelineButtons onClick={setNewTimeline} timeline={timeline} />}
         </div>
       </div>
-      <Charts times={times} prices={prices} coinData={coinData} />
+      <Chart times={times} prices={prices} coinData={coinData} />
     </div>
   );
 };

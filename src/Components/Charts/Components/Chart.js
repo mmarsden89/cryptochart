@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Line } from "react-chartjs-2";
 import dayjs from "dayjs";
-import axios from "axios";
-import "./Charts.scss";
+import "../Charts.scss";
 
-const Charts = (props) => {
+const Chart = (props) => {
   const { times, prices, coinData } = props;
   useEffect(() => {}, [coinData, times, prices]);
 
@@ -85,4 +84,4 @@ const Charts = (props) => {
   );
 };
 
-export default Charts;
+export default Chart;

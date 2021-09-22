@@ -58,7 +58,7 @@
   }
 
   .coin-list-item,
-  .browse-all {
+  .cancel {
     background-color: transparent;
     border: none;
     cursor: pointer;
@@ -69,13 +69,16 @@
     width: 100%;
   }
 
-  .browse-all {
-    color: white;
-    background-color: $blue;
+  .cancel {
+    background-color: $red;
     border-radius: 5px;
-    padding: 5px;
+    color: white;
+    font-weight: 600;
     margin-top: 5px;
+    padding: 5px;
+    text-align: center;
     white-space: nowrap;
+    width: 65px;
   }
 
   .coin-list-item:hover {
@@ -83,7 +86,7 @@
   }
 
   .coin-search-container {
-    background-color: rgba(185, 185, 185, 0.3);
+    text-align: left;
     font-size: 14px;
     width: 150px;
     position: absolute;

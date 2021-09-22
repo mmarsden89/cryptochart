@@ -25,7 +25,6 @@ const NewsWrapper = () => {
       ) : (
         <HomeNews news={news} />
       )}
-      ;
     </div>
   );
 };
