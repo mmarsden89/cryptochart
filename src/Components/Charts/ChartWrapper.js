@@ -38,7 +38,7 @@ const ChartWrapper = (props) => {
 
   const addNewButton = async () => {
     setNewCoinBoolean(true);
-    const api = getAllCoins(setSymbolList);
+    getAllCoins(setSymbolList);
   };
 
   const handleChange = (event) => {
