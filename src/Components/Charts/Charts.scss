@@ -157,7 +157,7 @@
 
   // for screens with width below 1100px
   @media (max-device-height: 1366px) and (max-device-width: 1024px) and (orientation: portrait) {
-    height: 30vh;
+    height: 25vh;
   }
 
   @media (max-width: $below1100) {
@@ -196,7 +196,7 @@
     }
 
     .coin-button-container {
-      margin-top: 75%;
+      margin-top: 65%;
       background-color: transparent;
     }
 
