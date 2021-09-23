@@ -63,8 +63,12 @@ const Chart = (props) => {
           maxRotation: 0,
           minRotation: 0,
           maxTicksLimit: 8,
-          font: {
-            size: 15,
+          font: function (context) {
+            var width = context.chart.width;
+            var size = Math.round(width / 64);
+            return {
+              size: size,
+            };
           },
         },
         grid: {
