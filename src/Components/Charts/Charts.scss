@@ -1,7 +1,7 @@
 @import "../../styles/colors";
+@import "../../styles/variables";
 
 .chart-wrapper-container {
-  background-color: white;
   border: 1px solid $border;
   height: 70vh;
   position: relative;
@@ -9,12 +9,13 @@
 
   .timeline-button {
     border: none;
-    background-color: white;
+    background-color: transparent;
     color: $gray;
     cursor: pointer;
     font-size: 1vw;
     font-weight: 700;
     transition: 0.35s;
+    white-space: nowrap;
   }
 
   .timeline-button:hover {
@@ -149,6 +150,71 @@
   }
 
   .button-container {
+    align-items: flex-start;
+    display: flex;
     padding: 15px 25px;
+  }
+
+  // for screens with width below 1100px
+  @media (max-device-height: 1366px) and (max-device-width: 1024px) and (orientation: portrait) {
+    height: 30vh;
+  }
+
+  @media (max-width: $below1100) {
+    width: 90vw;
+
+    .coin-chart-header {
+      font-size: 18px;
+    }
+
+    .percentage {
+      font-size: 14px;
+      padding: 0;
+    }
+
+    .price-action {
+      font-size: 14px !important;
+    }
+
+    .price-header {
+      font-size: 14px !important;
+    }
+
+    .timeline-button {
+      font-size: 14px;
+    }
+  }
+
+  @media (max-device-height: $phoneHeight) and (max-device-width: $phoneWidth) and (orientation: portrait) {
+    .button-container {
+      margin: 0 auto;
+      padding: 0;
+    }
+
+    .chart-header-container {
+      flex-wrap: wrap;
+    }
+
+    .coin-button-container {
+      margin-top: 75%;
+      background-color: transparent;
+    }
+
+    .current-price {
+      align-items: flex-start;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 5px;
+      width: 100%;
+
+      .price-action {
+        padding: 0;
+      }
+
+      .price-header {
+        display: none;
+      }
+    }
   }
 }

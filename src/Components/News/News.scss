@@ -1,4 +1,5 @@
 @import "../../styles/colors";
+@import "../../styles/variables";
 
 .news-wrapper {
   .all-news-container {
@@ -32,6 +33,10 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+    .empty {
+      height: 15%;
+    }
 
     .for-you {
       color: $blue;
@@ -91,6 +96,80 @@
 
     &:hover {
       background-color: $whitehover;
+    }
+  }
+
+  @media (max-device-height: 1366px) and (max-device-width: 1024px) and (orientation: portrait) {
+    .empty {
+      height: 0 !important;
+    }
+
+    .for-you {
+      font-size: 100px !important;
+    }
+
+    .home-news-container {
+      display: block !important;
+      height: 30vh;
+      width: 75vw;
+    }
+
+    .news-container {
+      flex-direction: row !important;
+      flex-wrap: wrap;
+      width: 100% !important;
+
+      & > :nth-last-child(2) {
+        display: none;
+      }
+      :nth-last-child(1) {
+        flex-grow: 2;
+      }
+    }
+
+    .news-item-container {
+      width: 45%;
+    }
+  }
+
+  @media (max-width: $below1100) {
+    .home-news-container {
+      display: none;
+    }
+  }
+
+  @media (max-device-height: $phoneHeight) and (max-device-width: $phoneWidth) and (orientation: portrait) {
+    .home-news-container {
+      margin-top: 30%;
+      width: 90vw;
+
+      .for-you {
+        font-size: 16px !important;
+      }
+
+      .news-container {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        justify-content: space-evenly !important;
+      }
+
+      .news-image {
+        height: 25px !important;
+        width: 25px !important;
+      }
+
+      .news-item-container {
+        padding: 5px 0;
+        width: 100%;
+
+        .news-title {
+          font-size: 10px;
+        }
+      }
+
+      .view-more {
+        width: calc(90vw - 20px);
+      }
     }
   }
 }

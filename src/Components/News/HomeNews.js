@@ -17,7 +17,7 @@ const HomeNews = (props) => {
 
   return (
     <div className="home-news-container">
-      <div style={{ height: "15%" }}></div>
+      <div className="empty"></div>
       <div className="for-you">NEWS FOR YOU</div>
       <div className="news-container">
         {newsHTML}

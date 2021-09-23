@@ -67,7 +67,7 @@ const Chart = (props) => {
             var width = context.chart.width;
             var size = Math.round(width / 64);
             return {
-              size: size,
+              size: size > 10 ? size : 10,
             };
           },
         },

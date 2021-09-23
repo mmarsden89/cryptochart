@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Teko:wght@500&display=swap");
 @import "../../styles/colors";
+@import "../../styles/variables";
 
 .navbar-container {
   background-color: white;
@@ -51,5 +52,26 @@
   .nav-link,
   .active-nav-link {
     transition: 0.25s;
+  }
+
+  @media (max-device-height: $phoneHeight) and (max-device-width: $phoneWidth) and (orientation: portrait) {
+    display: block;
+
+    .navbar-navigation {
+      background-color: $white;
+      bottom: calc(-100vh + 68px);
+      height: 50px;
+      position: absolute;
+      width: 100%;
+
+      .nav-link {
+        font-size: 15px;
+      }
+    }
+
+    .navbar-title {
+      margin: 0;
+      text-align: center;
+    }
   }
 }

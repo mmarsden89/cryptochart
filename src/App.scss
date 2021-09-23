@@ -1,4 +1,5 @@
 @import "styles/colors";
+@import "styles/variables";
 
 .App {
   background-color: $background;
@@ -15,8 +16,14 @@
     height: calc(100% - 93px);
     justify-content: space-evenly;
     margin-top: 68px;
-    // margin: auto 0;
     padding-top: 4%;
     width: 100%;
+  }
+
+  @media (max-height: $tabletHeight) and (max-width: $tabletWidth) {
+    .component-container {
+      flex-direction: column;
+      align-items: center;
+    }
   }
 }
