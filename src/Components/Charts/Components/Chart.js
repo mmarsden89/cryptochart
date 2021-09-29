@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Line } from "react-chartjs-2";
+import { getTheme } from "../../../utilities/index.js";
 import dayjs from "dayjs";
 import "../Charts.scss";
 
@@ -7,13 +8,17 @@ const Chart = (props) => {
   const { times, prices, coinData } = props;
   useEffect(() => {}, [coinData, times, prices]);
 
+  const lineColor = getTheme() ? "#3773f5" : "rgba(0,82,255, .8)";
+  const fontColor = getTheme() ? "white" : "black";
+
+  console.log(fontColor);
   const data = {
     labels: times,
     datasets: [
       {
         borderWidth: 2,
         data: prices,
-        borderColor: "rgba(0,82,255, .8)",
+        borderColor: lineColor,
         pointRadius: 0,
         spanGaps: false,
       },
@@ -63,6 +68,7 @@ const Chart = (props) => {
           maxRotation: 0,
           minRotation: 0,
           maxTicksLimit: 8,
+          color: fontColor,
           font: function (context) {
             var width = context.chart.width;
             var size = Math.round(width / 64);

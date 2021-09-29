@@ -1,7 +1,30 @@
 import "./Navbar.scss";
 import { NavLink } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = (props) => {
+  const { dark } = props;
+
+  const moonHTML = (
+    <div onClick={props.flipTheme} className="theme-toggle">
+      <div className="moon">
+        <div className="inner-moon"></div>
+      </div>
+    </div>
+  );
+
+  const sunHTML = (
+    <div onClick={props.flipTheme} className="theme-toggle">
+      <div className="sun">
+        <div className="sunglasses"></div>
+        <div className="sun-smile"></div>
+      </div>
+    </div>
+  );
+
+  const moonOrSun = () => {
+    return dark ? sunHTML : moonHTML;
+  };
+
   return (
     <div className="navbar-container">
       <NavLink to="/">
@@ -23,6 +46,7 @@ const Navbar = () => {
         >
           NEWS
         </NavLink>
+        {moonOrSun()}
       </nav>
     </div>
   );

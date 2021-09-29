@@ -2,7 +2,7 @@
 @import "../../styles/variables";
 
 .chart-wrapper-container {
-  border: 1px solid $border;
+  border: 1px solid var(--border);
   height: 70vh;
   position: relative;
   width: 70vw;
@@ -19,11 +19,11 @@
   }
 
   .timeline-button:hover {
-    color: $blue;
+    color: var(--blue);
   }
 
   .active-timeline {
-    color: $blue;
+    color: var(--blue);
   }
 
   .coin-button-container {
@@ -44,7 +44,7 @@
 
   .new-coin-input {
     border: none;
-    border-bottom: 1px solid $blue;
+    border-bottom: 1px solid var(--blue);
     font-weight: 700;
     outline: none;
     padding: 0px 1px;
@@ -56,7 +56,7 @@
   }
 
   .new-coin-input:focus {
-    color: $blue;
+    color: var(--blue);
   }
 
   .coin-list-item,
@@ -72,7 +72,7 @@
   }
 
   .cancel {
-    background-color: $red;
+    background-color: var(--red);
     border-radius: 5px;
     color: $white;
     font-weight: 600;
@@ -95,7 +95,7 @@
   }
 
   .remove-button {
-    color: $red !important;
+    color: var(--red);
   }
 
   .positive {
@@ -103,7 +103,7 @@
   }
 
   .negative {
-    color: $red;
+    color: var(--red);
   }
 
   .percentage {
@@ -119,15 +119,16 @@
   }
 
   .coin-chart-header {
-    color: $blue;
+    color: var(--blue);
     font-size: 2vw;
     font-weight: 700;
   }
 
   .line-container {
-    background-color: white;
-    border: 1px solid $border;
+    background-color: var(--bg-sec);
+    border: 1px solid var(--border);
     border-top: none;
+    cursor: crosshair;
     height: 100%;
     margin-left: -1px;
     padding-top: 5vh;
@@ -142,6 +143,7 @@
     .price-action {
       padding-top: 5px;
       font-size: 1.2vw;
+      color: var(--text);
     }
     .price-header {
       color: gray;

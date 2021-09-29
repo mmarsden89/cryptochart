@@ -1,12 +1,44 @@
-$blue: rgba(0, 82, 255, 0.8);
 $gray: rgb(185, 185, 185);
 $white: white;
 $black: black;
 
-$blueLight: rgba(0, 82, 255, 0.7);
 $red: rgb(221, 53, 53);
+$red-dark: rgb(231, 69, 69);
+
+$blue: rgba(0, 82, 255, 0.8);
+$blue-dark: #3773f5;
+
+$lighthover: rgb(233, 231, 231);
+$darkhover: #23272e;
+
+$bg-light: #003ec11a;
+$bg-dark: #0a0b0d;
 
 $border: #d1cece;
+$border-dark: #202225;
 
-$whitehover: rgb(233, 231, 231);
-$background: rgba(0, 62, 193, 0.1);
+:root {
+  --bg-pri: #{$bg-light};
+  --bg-sec: #{$white};
+  --border: #{$border};
+  --text: #{$black};
+  --red: #{$red};
+  --blue: #{$blue};
+  --blue-sec: #{$blue};
+  --sec-hov: #{$lighthover};
+  --toggle-color: #{$blue};
+  --toggle-color-sec: #{$white};
+}
+
+.theme-dark {
+  --bg-pri: #{$bg-dark};
+  --bg-sec: #{$bg-dark};
+  --border: #{$border-dark};
+  --text: #{$white};
+  --red: #{$red-dark};
+  --blue: #{$blue-dark};
+  --blue-sec: #{lighten($blue-dark, 5%)};
+  --sec-hov: #{$darkhover};
+  --toggle-color: #{$white};
+  --toggle-color-sec: #{lighten($bg-dark, 15%)};
+}
