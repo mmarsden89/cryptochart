@@ -1,10 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Teko:wght@500&display=swap");
 @import "../../styles/colors";
 @import "../../styles/variables";
+@import "./Toggle";
 
 .navbar-container {
-  background-color: white;
-  border-bottom: 1px solid $border;
+  background-color: var(--bg-sec);
+  border-bottom: 1px solid var(--border);
   display: flex;
   flex-direction: row;
   height: 68px;
@@ -15,7 +16,7 @@
   z-index: 100;
 
   .navbar-title {
-    color: rgba(0, 82, 255, 0.8);
+    color: var(--blue);
     font-family: "Teko", sans-serif;
     font-size: 45px;
     font-weight: 600;
@@ -29,23 +30,22 @@
 
   .navbar-navigation {
     align-items: center;
-    color: rgba(0, 82, 255, 0.8) !important;
     display: flex;
     flex-direction: row;
     font-weight: 500;
     justify-content: space-evenly;
     margin-right: 40px;
-    width: 10%;
+    width: 12%;
   }
 
   .nav-link {
-    color: rgba(0, 82, 255, 0.8);
+    color: var(--blue);
     font-size: 1.25vw;
   }
 
   .active-nav-link,
   .nav-link:hover {
-    color: rgba(0, 82, 255, 0.9);
+    color: var(--blue-sec);
     font-weight: 700;
   }
 
