@@ -3,15 +3,15 @@
 
 .news-wrapper {
   .all-news-container {
-    background-color: $white;
-    border: 1px solid $border;
+    background-color: var(--bg-sec);
+    border: 1px solid var(--border);
     overflow: scroll;
     height: calc(100vh - 200px);
     position: relative;
     width: 90vw;
 
     .scroll-for-more {
-      color: $blue;
+      color: var(--blue);
       font-weight: 700;
       position: absolute;
       top: 0;
@@ -39,15 +39,15 @@
     }
 
     .for-you {
-      color: $blue;
+      color: var(--blue);
       font-size: 25px;
       font-weight: 700;
       padding-bottom: 5px;
     }
 
     .news-container {
-      background-color: $white;
-      border: 1px solid $border;
+      background-color: var(--bg-sec);
+      border: 1px solid var(--border);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -59,7 +59,7 @@
     }
 
     .view-more {
-      background-color: $blue;
+      background-color: var(--blue);
       color: white;
       font-size: 20px;
       font-weight: 500;
@@ -70,7 +70,7 @@
 
   .news-item-container {
     align-items: center;
-    color: $black;
+    color: var(--text);
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -95,7 +95,7 @@
     }
 
     &:hover {
-      background-color: $whitehover;
+      background-color: var(--sec-hov);
     }
   }
 
