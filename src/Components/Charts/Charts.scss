@@ -83,6 +83,10 @@
     width: 65px;
   }
 
+  .coin-list-item {
+    color: var(--text);
+  }
+
   .coin-list-item:hover {
     background-color: rgba(0, 82, 255, 0.15);
   }
