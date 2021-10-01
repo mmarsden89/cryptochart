@@ -11,7 +11,6 @@ const Chart = (props) => {
   const lineColor = getTheme() ? "#3773f5" : "rgba(0,82,255, .8)";
   const fontColor = getTheme() ? "white" : "black";
 
-  console.log(fontColor);
   const data = {
     labels: times,
     datasets: [
