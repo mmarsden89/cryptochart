@@ -6,6 +6,7 @@ import ChartWrapper from "./Components/Charts/ChartWrapper.js";
 import NewsWrapper from "./Components/News/NewsWrapper.js";
 import React, { useState, useEffect } from "react";
 import { getTheme, setTheme } from "./utilities/index.js";
+import FourZeroFour from "./Components/FourZeroFour/FourZeroFour.js";
 
 function App() {
   const [errorMessage, setErrorMessage] = useState("");
@@ -41,6 +42,9 @@ function App() {
           </Route>
           <Route exact path="/news">
             <NewsWrapper />
+          </Route>
+          <Route>
+            <FourZeroFour />
           </Route>
         </Switch>
       </div>
