@@ -23,9 +23,11 @@ const getCoinData = async (
   const api = await axios(urls[timeline]);
 
   const dataToSet = api.data.Data.Data;
+
   setCoinData(dataToSet);
   setTimes(dataToSet.map((single) => timeConverter(single.time)));
   setPrices(dataToSet.map((single) => single.close));
+
   const percentageCalc =
     Math.round(
       ((dataToSet[dataToSet.length - 1].close - dataToSet[0].close) /
@@ -33,6 +35,7 @@ const getCoinData = async (
         100 *
         100
     ) / 100;
+
   setPercentage(percentageCalc);
   return dataToSet;
 };
