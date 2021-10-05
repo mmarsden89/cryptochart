@@ -1,5 +1,14 @@
 const CurrentPrice = (props) => {
   const { percentage, coinData, coin } = props.state;
+  console.log(coinData);
+
+  const currentPriceFormatted = () => {
+    return coinData[coinData.length - 1].close > 10
+      ? coinData[coinData.length - 1].close.toLocaleString(undefined, {
+          minimumFractionDigits: 2,
+        })
+      : coinData[coinData.length - 1].close;
+  };
 
   return (
     <div className="current-price">
@@ -14,13 +23,7 @@ const CurrentPrice = (props) => {
         </div>
       </div>
       <div className="price-header">Current Price:</div>
-      <div className="price-action">
-        $
-        {coinData[1] &&
-          coinData[coinData.length - 1].close.toLocaleString(undefined, {
-            minimumFractionDigits: 2,
-          })}
-      </div>
+      <div className="price-action">${currentPriceFormatted()}</div>
     </div>
   );
 };
