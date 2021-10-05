@@ -137,7 +137,9 @@ const ChartWrapper = (props) => {
   return (
     <div className="chart-wrapper-container">
       <div className="chart-header-container">
-        <CurrentPrice state={{ percentage, coinData, coin }} />
+        {coinData.length && (
+          <CurrentPrice state={{ percentage, coinData, coin }} />
+        )}
         <CoinButtons
           functions={{ deleteCoin, setNewCoin, chartButtonClassName }}
           state={{ coinList, newCoinBoolean }}

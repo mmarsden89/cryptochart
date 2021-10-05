@@ -11,6 +11,10 @@ const Chart = (props) => {
   const lineColor = getTheme() ? "#3773f5" : "rgba(0,82,255, .8)";
   const fontColor = getTheme() ? "white" : "black";
 
+  const rawOrFormatted = (number) => {
+    return number.raw > 10 ? number.formattedValue : number.raw;
+  };
+
   const data = {
     labels: times,
     datasets: [
@@ -49,7 +53,7 @@ const Chart = (props) => {
         displayColors: false,
         callbacks: {
           title: function (tooltipItem) {
-            return "$" + tooltipItem[0].formattedValue;
+            return "$" + rawOrFormatted(tooltipItem[0]);
           },
           label: function (tooltipItem) {
             return dayjs(coinData[tooltipItem.dataIndex].time * 1000).format(
