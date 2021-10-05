@@ -49,7 +49,12 @@ const Chart = (props) => {
         displayColors: false,
         callbacks: {
           title: function (tooltipItem) {
-            return "$" + tooltipItem[0].raw;
+            return (
+              "$" +
+              (tooltipItem[0].raw > 10
+                ? tooltipItem[0].formattedValue
+                : tooltipItem[0].raw)
+            );
           },
           label: function (tooltipItem) {
             return dayjs(coinData[tooltipItem.dataIndex].time * 1000).format(
