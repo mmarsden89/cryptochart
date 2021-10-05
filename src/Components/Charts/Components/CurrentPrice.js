@@ -1,6 +1,5 @@
 const CurrentPrice = (props) => {
   const { percentage, coinData, coin } = props.state;
-  console.log(coinData);
 
   const currentPriceFormatted = () => {
     return coinData[coinData.length - 1].close > 10

@@ -1,8 +1,12 @@
 import axios from "axios";
 import dayjs from "dayjs";
 
-const timeConverter = (time) => {
-  return dayjs(time * 1000).format("MMM DD");
+const timeConverter = (time, timeline) => {
+  let formattedTime = dayjs(time * 1000).format("MMM DD");
+  if (timeline === "24H" || timeline === "1H") {
+    formattedTime = dayjs(time * 1000).format("hh:mm a");
+  }
+  return formattedTime;
 };
 
 const getCoinData = async (
@@ -25,7 +29,7 @@ const getCoinData = async (
   const dataToSet = api.data.Data.Data;
 
   setCoinData(dataToSet);
-  setTimes(dataToSet.map((single) => timeConverter(single.time)));
+  setTimes(dataToSet.map((single) => timeConverter(single.time, timeline)));
   setPrices(dataToSet.map((single) => single.close));
 
   const percentageCalc =
