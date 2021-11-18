@@ -206,6 +206,7 @@
     .coin-button-container {
       margin-top: 50%;
       background-color: transparent;
+      flex-wrap: nowrap;
     }
 
     .current-price {
@@ -215,7 +216,6 @@
       justify-content: space-between;
       padding: 5px;
       width: 100%;
-      flex-wrap: nowrap;
 
       .price-action {
         padding: 0;
