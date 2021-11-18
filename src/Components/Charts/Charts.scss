@@ -193,7 +193,7 @@
     }
   }
 
-  @media (max-device-height: $phoneHeight) and (max-device-width: $phoneWidth) and (orientation: portrait) {
+  @media (max-device-height: $phoneHeight) and (max-device-width: $phoneWidth) {
     .button-container {
       margin: 0 auto;
       padding: 0;
