@@ -138,9 +138,9 @@
     }
   }
 
-  @media (max-device-height: $phoneHeight) and (max-device-width: $phoneWidth) and (orientation: portrait) {
+  @media (max-device-width: $phoneWidth) and (orientation: portrait) {
     .home-news-container {
-      margin-top: 30%;
+      margin-top: 20%;
       width: 90vw;
 
       .for-you {

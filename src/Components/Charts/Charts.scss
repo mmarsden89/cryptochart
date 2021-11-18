@@ -193,7 +193,7 @@
     }
   }
 
-  @media (max-device-height: $phoneHeight) and (max-device-width: $phoneWidth) {
+  @media (max-device-width: 414px) {
     .button-container {
       margin: 0 auto;
       padding: 0;
@@ -204,7 +204,7 @@
     }
 
     .coin-button-container {
-      margin-top: 65%;
+      margin-top: 50%;
       background-color: transparent;
     }
 
