@@ -28,7 +28,7 @@ const Navbar = (props) => {
   return (
     <div className="navbar-container">
       <NavLink to="/">
-        <div className="navbar-title">CRYPTOCHART</div>
+        <div className="navbar-title">CRYPTOCHAR</div>
       </NavLink>
       <nav className="navbar-navigation">
         <NavLink
