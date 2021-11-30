@@ -8,6 +8,9 @@ import {
 } from "./Components/index.js";
 import { getCoinData, getAllCoins } from "./api/index.js";
 
+// this component handles a lot of logic
+// will need to be refactored down and seperated
+
 const ChartWrapper = (props) => {
   const { flipError } = props;
 
@@ -22,6 +25,7 @@ const ChartWrapper = (props) => {
   const [symbolList, setSymbolList] = useState([]);
   const [percentage, setPercentage] = useState(0);
 
+  // updates the current targeted coin to display
   const updateCoin = (id) => {
     setCoin(id);
   };
@@ -31,11 +35,13 @@ const ChartWrapper = (props) => {
     updateCoin(id);
   };
 
+  // updates the current timeline to display
   const setNewTimeline = (event) => {
     const { id } = event.target;
     setTimeline(id);
   };
 
+  // following functions are handling adding new coin to list
   const addNewButton = async () => {
     setNewCoinBoolean(true);
     getAllCoins(setSymbolList);

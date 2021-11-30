@@ -12,6 +12,8 @@ function App() {
   const [errorMessage, setErrorMessage] = useState("");
   const [dark, setDark] = useState(JSON.parse(getTheme()));
 
+  // error message can be handled elsewhere
+  // current stopgap until further refactor
   const defaultError = () => {
     setErrorMessage("");
   };
