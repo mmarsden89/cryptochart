@@ -1,12 +1,12 @@
 import "./App.scss";
-import Navbar from "./Components/Navbar/Navbar.js";
-import ErrorMessage from "./Components/ErrorMessage/ErrorMessage.js";
+import Navbar from "./components/Navbar/Navbar.js";
+import ErrorMessage from "./components/ErrorMessage/ErrorMessage.js";
 import { Route, Switch } from "react-router-dom";
-import ChartWrapper from "./Components/Charts/ChartWrapper.js";
-import NewsWrapper from "./Components/News/NewsWrapper.js";
+import ChartWrapper from "./components/Charts/ChartWrapper.js";
+import NewsWrapper from "./components/News/NewsWrapper.js";
 import React, { useState, useEffect } from "react";
 import { getTheme, setTheme } from "./utilities/index.js";
-import FourZeroFour from "./Components/FourZeroFour/FourZeroFour.js";
+import FourZeroFour from "./components/FourZeroFour/FourZeroFour.js";
 
 function App() {
   const [errorMessage, setErrorMessage] = useState("");
