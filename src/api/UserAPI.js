@@ -2,17 +2,21 @@ import axios from "axios";
 import apiUrl from "./apiConfig.js";
 
 const postUser = async () => {
-  console.log(apiUrl, "/users");
   const newUser = await axios({
     url: apiUrl + "/users",
     method: "POST",
     data: {
       user: {
-        // nickname: auth0Client.getProfile().nickname
+        nickname: "hello",
       },
     },
   });
   console.log(newUser);
 };
 
-export default postUser;
+const getUser = async () => {
+  const userData = await axios(apiUrl + "/users/hello");
+  console.log(userData);
+};
+
+export { postUser, getUser };
