@@ -1,11 +1,11 @@
 import axios from "axios";
 
-const getAllCoins = async (setSymbolList) => {
+const getAllCoins = async () => {
   const api = await axios(
     "https://min-api.cryptocompare.com/data/all/coinlist?summary=true"
   );
   const { Data } = api.data;
-  setSymbolList(Object.keys(Data));
+  // setSymbolList(Object.keys(Data));
   return api;
 };
 

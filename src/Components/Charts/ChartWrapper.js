@@ -7,6 +7,8 @@ import {
   Chart,
 } from "./Components/index.js";
 import { getCoinData, getAllCoins } from "./api/index.js";
+import NoPortfolio from "./NoPortfolio.js";
+import NewPortfolio from "./NewPortfolio.js";
 
 // this component handles a lot of logic
 // will need to be refactored down and seperated
@@ -24,6 +26,10 @@ const ChartWrapper = (props) => {
   const [symbol, setSymbol] = useState("");
   const [symbolList, setSymbolList] = useState([]);
   const [percentage, setPercentage] = useState(0);
+  const [portfolio, setPortfolio] = useState({});
+
+  const [newPort, setNewPort] = useState(false);
+  const [doesPortExist, setDoesPortExist] = useState(false);
 
   // updates the current targeted coin to display
   const updateCoin = (id) => {
@@ -128,21 +134,42 @@ const ChartWrapper = (props) => {
     localStorage.setItem("coins", JSON.stringify(updatedList));
   };
 
-  useEffect(async () => {
-    checkOrUpdateStorage();
-    const api = await getCoinData(
-      coin,
-      timeline,
-      setCoinData,
-      setTimes,
-      setPrices,
-      setPercentage
-    );
-  }, [timeline, coin]);
+  useEffect(
+    async () => {
+      checkOrUpdateStorage();
+      const api = await getCoinData(
+        coin,
+        timeline,
+        setCoinData,
+        setTimes,
+        setPrices,
+        setPercentage
+      );
+    },
+    // [timeline, coin]);
+    [newPort, doesPortExist]
+  );
+
+  const lookupPortfolio = () => {
+    if (!localStorage.getItem("portfolio")) {
+    }
+  };
+
+  const handleNewPortfolio = () => {
+    setDoesPortExist(true);
+    setNewPort(true);
+  };
 
   return (
+    // <div>
+
     <div className="chart-wrapper-container">
-      <div className="chart-header-container">
+      {!doesPortExist && (
+        <NoPortfolio handleNewPortfolio={handleNewPortfolio} />
+      )}
+      {newPort && <NewPortfolio />}
+
+      {/* <div className="chart-header-container">
         {coinData.length && (
           <CurrentPrice state={{ percentage, coinData, coin }} />
         )}
@@ -155,7 +182,7 @@ const ChartWrapper = (props) => {
           {<TimelineButtons onClick={setNewTimeline} timeline={timeline} />}
         </div>
       </div>
-      <Chart times={times} prices={prices} coinData={coinData} />
+      <Chart times={times} prices={prices} coinData={coinData} /> */}
     </div>
   );
 };

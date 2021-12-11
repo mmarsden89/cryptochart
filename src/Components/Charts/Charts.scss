@@ -3,7 +3,7 @@
 
 .chart-wrapper-container {
   border: 1px solid var(--border);
-  height: 70vh;
+  height: 75vh;
   position: relative;
   width: 70vw;
 
@@ -161,6 +161,16 @@
     align-items: flex-start;
     display: flex;
     padding: 15px 25px;
+  }
+
+  .no-portfolio {
+    h1 {
+      color: var(--blue);
+    }
+    h3,
+    h4 {
+      color: var(--text);
+    }
   }
 
   // for screens with width below 1100px
