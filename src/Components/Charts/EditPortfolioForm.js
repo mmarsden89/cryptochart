@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { getAllCoins } from "./api/index.js";
 
-const NewPortfolio = () => {
+const EditPortfolioForm = () => {
   const [newPort, setNewPort] = useState({});
-  const [symbol, setSymbol] = useState("");
+  //   const [symbol, setSymbol] = useState("");
   const [allSymbols, setAllSymbols] = useState([]);
   const [symbolReturn, setSymbolReturn] = useState([]);
   const [searchInput, setSearchInput] = useState("");
+
+  const [values, setValues] = useState({});
+
+  //   const { Symbol } = values.symbol;
 
   const handleSymbolSearch = (val) => {
     if (val.length < 1) {
@@ -22,17 +26,30 @@ const NewPortfolio = () => {
 
   const handleChange = (e) => {
     const { value, name } = e.target;
-    if (name) {
+    if (name === "symbol") {
       setSearchInput(value.toUpperCase());
       handleSymbolSearch(value.toUpperCase());
+    } else {
+      setValues((prev) => ({
+        ...prev,
+        [name]: value,
+      }));
     }
   };
 
   const handleClick = (e) => {
     const { id } = e.target;
-    setSymbol(allSymbols[id]);
+    setValues((prev) => ({
+      ...prev,
+      symbol: allSymbols[id],
+    }));
+    // setSymbol(allSymbols[id]);
     setSearchInput(id);
     setSymbolReturn([]);
+  };
+
+  const handleSubmit = (e) => {
+    console.log(values);
   };
 
   useEffect(async () => {
@@ -49,6 +66,7 @@ const NewPortfolio = () => {
           onChange={handleChange}
           name="symbol"
           value={searchInput}
+          required
         />
         <ul>
           {symbolReturn.map((key) => (
@@ -56,6 +74,7 @@ const NewPortfolio = () => {
               style={{ color: "white", listStyleType: "none" }}
               onClick={handleClick}
               id={key}
+              key={key}
             >
               {key}
             </li>
@@ -63,15 +82,29 @@ const NewPortfolio = () => {
         </ul>
       </div>
       <div>
-        <input placeholder="amount (# coins)" type="number" />
-        <p style={{ color: "white" }}>{symbol.Symbol}</p>
+        <input
+          placeholder="amount (# coins)"
+          type="number"
+          name="amount"
+          onChange={handleChange}
+          required
+        />
+        <p style={{ color: "white" }}>
+          {values.symbol ? values.symbol.Symbol : null}
+        </p>
       </div>
       <div>
-        <input placeholder="cost average" type="number" />
+        <input
+          placeholder="cost average"
+          type="number"
+          name="average"
+          onChange={handleChange}
+          required
+        />
       </div>
-      <button>submit</button>
+      <button onClick={handleSubmit}>submit</button>
     </div>
   );
 };
 
-export default NewPortfolio;
+export default EditPortfolioForm;

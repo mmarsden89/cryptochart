@@ -6,6 +6,9 @@
   height: 75vh;
   position: relative;
   width: 70vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 
   .timeline-button {
     border: none;
