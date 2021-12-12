@@ -9,7 +9,6 @@ import {
 import { getCoinData, getAllCoins } from "./api/index.js";
 import NoPortfolio from "./NoPortfolio.js";
 import EditPortfolio from "./EditPortfolio.js";
-import Assets from "./Assets.js";
 
 // this component handles a lot of logic
 // will need to be refactored down and seperated
@@ -168,7 +167,7 @@ const ChartWrapper = (props) => {
       {!doesPortExist && (
         <NoPortfolio handleNewPortfolio={handleNewPortfolio} />
       )}
-      <Assets />
+      {/* <Assets /> */}
       {newPort && <EditPortfolio />}
 
       {/* <div className="chart-header-container">

@@ -8,6 +8,7 @@ import {
   ChartWrapper,
   NewsWrapper,
   FourZeroFour,
+  Assets,
 } from "./components/index.js";
 
 function App() {
@@ -42,7 +43,8 @@ function App() {
         <Switch>
           <Route exact path="/">
             <ChartWrapper flipError={flipError} />
-            <NewsWrapper />
+            <Assets />
+            {/* <NewsWrapper /> */}
           </Route>
           <Route exact path="/news">
             <NewsWrapper />

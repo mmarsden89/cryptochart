@@ -1,0 +1,47 @@
+@import "../../styles/colors";
+@import "../../styles/variables";
+
+.assets-container {
+  border: 1px solid var(--border);
+  color: var(--text);
+  height: 75vh;
+  width: 30vw;
+
+  h1 {
+    color: var(--blue);
+  }
+
+  .assets {
+    height: 75%;
+    // border: 1px solid gray;
+    // width: 100%;
+  }
+
+  table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+
+    tr {
+      height: 40px;
+      text-align: right;
+      border: 1px solid var(--border);
+      border-left: none;
+      border-right: none;
+      //   padding: 10px 30px;
+      & > td {
+        padding: 0 10px;
+      }
+
+      & > :nth-child(1) {
+        width: 20%;
+      }
+      & > :nth-child(2) {
+        width: 50%;
+      }
+      & > :nth-child(3) {
+        width: 30%;
+      }
+    }
+  }
+}
