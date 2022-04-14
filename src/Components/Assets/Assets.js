@@ -1,13 +1,14 @@
 import "./Assets.scss";
+import { useSelector } from "react-redux";
 
 const Assets = () => {
-  const assetsList = JSON.parse(localStorage.getItem("portfolio"));
+  const { value } = useSelector((state) => state.assets);
 
-  const assetsHTML = assetsList.map((asset) => (
-    <tr key={asset.symbol}>
-      <td>{asset.symbol}</td>
-      <td>{asset.amount}</td>
-      <td>{asset.cost}</td>
+  const assetsHTML = Object.keys(value).map((asset) => (
+    <tr key={value[asset].symbol}>
+      <td>{value[asset].symbol}</td>
+      <td>{value[asset].amount}</td>
+      <td>{value[asset].cost}</td>
     </tr>
   ));
 
@@ -17,12 +18,14 @@ const Assets = () => {
         <h1>assets</h1>
       </div>
       <table>
-        <tr>
-          <td>symbol</td>
-          <td>Balance</td>
-          <td>Price</td>
-        </tr>
-        {assetsHTML}
+        <tbody>
+          <tr>
+            <td>symbol</td>
+            <td>Balance</td>
+            <td>Price</td>
+          </tr>
+          {assetsHTML}
+        </tbody>
       </table>
     </div>
   );

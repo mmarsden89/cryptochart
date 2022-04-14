@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { getAllCoins } from "./api/index.js";
+import { useSelector, useDispatch } from "react-redux";
 
 const EditPortfolioForm = () => {
   const [newPort, setNewPort] = useState({});
@@ -11,6 +12,8 @@ const EditPortfolioForm = () => {
   const [values, setValues] = useState({});
 
   //   const { Symbol } = values.symbol;
+  const { value } = useSelector((state) => state.assets);
+  const dispatch = useDispatch();
 
   const handleSymbolSearch = (val) => {
     if (val.length < 1) {
@@ -49,7 +52,7 @@ const EditPortfolioForm = () => {
   };
 
   const handleSubmit = (e) => {
-    console.log(values);
+    // console.log(values);
   };
 
   useEffect(async () => {
